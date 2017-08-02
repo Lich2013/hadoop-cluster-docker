@@ -3,6 +3,6 @@
 echo ""
 
 echo -e "\nbuild docker hadoop image\n"
-docker build -t lich2013/hadoop:2.8.1 .
+docker build -t lich2013/hadoop:last .
 
 echo ""

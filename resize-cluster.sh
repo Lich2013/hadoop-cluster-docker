@@ -23,6 +23,6 @@ echo ""
 echo -e "\nbuild docker hadoop image\n"
 
 # rebuild kiwenlau/hadoop image
-sudo docker build -t lich2013/hadoop:2.8.1 .
+sudo docker build -t lich2013/hadoop:last .
 
 echo ""
