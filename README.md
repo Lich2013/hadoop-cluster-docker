@@ -12,19 +12,19 @@
 ##### 1. pull docker image
 
 ```
-sudo docker pull kiwenlau/hadoop:1.0
+docker pull lich2013/hadoop:last
 ```
 
 ##### 2. clone github repository
 
 ```
-git clone https://github.com/kiwenlau/hadoop-cluster-docker
+git clone https://github.com/lich2013/hadoop-cluster-docker
 ```
 
 ##### 3. create hadoop network
 
 ```
-sudo docker network create --driver=bridge hadoop
+docker network create --driver=bridge hadoop
 ```
 
 ##### 4. start container
