@@ -9,34 +9,34 @@
 
 ### 3 Nodes Hadoop Cluster
 
-##### 1. pull docker image
+##### 1. pull docker image(size only 620M)
 
-```
-docker pull lich2013/hadoop:last
+```shell
+docker pull lich2013/hadoop
 ```
 
 ##### 2. clone github repository
 
-```
+```shell
 git clone https://github.com/lich2013/hadoop-cluster-docker
 ```
 
 ##### 3. create hadoop network
 
-```
+```shell
 docker network create --driver=bridge hadoop
 ```
 
 ##### 4. start container
 
-```
+```shell
 cd hadoop-cluster-docker
 sudo ./start-container.sh
 ```
 
 **output:**
 
-```
+```text
 start hadoop-master container...
 start hadoop-slave1 container...
 start hadoop-slave2 container...
@@ -47,19 +47,19 @@ root@hadoop-master:~#
 
 ##### 5. start hadoop
 
-```
+```shell
 ./start-hadoop.sh
 ```
 
 ##### 6. run wordcount
 
-```
+```shell
 ./run-wordcount.sh
 ```
 
 **output**
 
-```
+```text
 input file1.txt:
 Hello Hadoop
 
@@ -80,7 +80,7 @@ do 1~3 like section A
 
 ##### 2. rebuild docker image
 
-```
+```shell
 sudo ./resize-cluster.sh 5
 ```
 - specify parameter > 1: 2, 3..
@@ -89,7 +89,7 @@ sudo ./resize-cluster.sh 5
 
 ##### 3. start container
 
-```
+```shell
 sudo ./start-container.sh 5
 ```
 - use the same parameter as the step 2
