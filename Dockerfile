@@ -9,10 +9,15 @@ WORKDIR /root
 
 RUN yum install -y wget openssh-server openssh-clients java-1.8.0-openjdk java-1.8.0-openjdk-devel which && \
 	wget http://archive.apache.org/dist/hadoop/core/hadoop-2.8.1/hadoop-2.8.1.tar.gz && \
-	tar -zxvf hadoop-2.8.1.tar.gz && \
+	tar -zxf hadoop-2.8.1.tar.gz && \
 	mv hadoop-2.8.1 /usr/local/hadoop && \
 	rm -rf hadoop-2.8.1.tar.gz && \
 	rm -rf /usr/local/hadoop/share/doc && \
+    wget http://mirror.bit.edu.cn/apache/hbase/stable/hbase-1.2.6-bin.tar.gz && \
+    tar -zxf hbase-1.2.6-bin.tar.gz && \
+    mv hbase-1.2.6 /usr/local/hbase && \
+    rm -rf hbase-1.2.6-bin.tar.gz && \
+    rm -rf /usr/local/hbase/docs/ && \
 	yum clean all
 
 ENV JAVA_HOME=/usr/lib/jvm/jre-openjdk
@@ -27,7 +32,8 @@ RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
 
 RUN mkdir -p ~/hdfs/namenode && \
     mkdir -p ~/hdfs/datanode && \
-    mkdir $HADOOP_HOME/logs
+    mkdir $HADOOP_HOME/logs && \
+    mkdir -p ~/zookeeper/data
 
 COPY config/* /tmp/
 
@@ -39,7 +45,10 @@ RUN mv /tmp/ssh_config ~/.ssh/config && \
     mv /tmp/yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml && \
     mv /tmp/slaves $HADOOP_HOME/etc/hadoop/slaves && \
     mv /tmp/start-hadoop.sh ~/start-hadoop.sh && \
-    mv /tmp/run-wordcount.sh ~/run-wordcount.sh
+    mv /tmp/run-wordcount.sh ~/run-wordcount.sh && \
+    mv /tmp/hbase-site.xml /usr/local/hbase/conf && \
+    mv /tmp/regionservers /usr/local/hbase/conf && \
+    mv /tmp/hbase-env.sh /usr/local/hbase/conf
 
 RUN chmod +x ~/start-hadoop.sh && \
     chmod +x ~/run-wordcount.sh && \
