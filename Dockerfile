@@ -7,7 +7,7 @@ WORKDIR /root
 # if you have this file in local
 # COPY hadoop-2.8.1.tar.gz .
 
-RUN yum install -y wget openssh-server openssh-clients java-1.8.0-openjdk which && \
+RUN yum install -y wget openssh-server openssh-clients java-1.8.0-openjdk java-1.8.0-openjdk-devel which && \
 	wget http://archive.apache.org/dist/hadoop/core/hadoop-2.8.1/hadoop-2.8.1.tar.gz && \
 	tar -zxvf hadoop-2.8.1.tar.gz && \
 	mv hadoop-2.8.1 /usr/local/hadoop && \
