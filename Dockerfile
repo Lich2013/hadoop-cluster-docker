@@ -13,7 +13,7 @@ RUN yum install -y wget openssh-server openssh-clients java-1.8.0-openjdk java-1
 	mv hadoop-2.8.1 /usr/local/hadoop && \
 	rm -rf hadoop-2.8.1.tar.gz && \
 	rm -rf /usr/local/hadoop/share/doc && \
-    wget http://mirror.bit.edu.cn/apache/hbase/stable/hbase-1.2.6-bin.tar.gz && \
+    wget http://archive.apache.org/dist/hbase/stable/hbase-1.2.6-bin.tar.gz && \
     tar -zxf hbase-1.2.6-bin.tar.gz && \
     mv hbase-1.2.6 /usr/local/hbase && \
     rm -rf hbase-1.2.6-bin.tar.gz && \
