@@ -6,9 +6,8 @@ WORKDIR /root
 
 # if you have this file in local
 # COPY hadoop-2.8.1.tar.gz .
-
-RUN rpm -ivh https://repo.mysql.com//mysql57-community-release-el7-11.noarch.rpm && \
-    yum install wget openssh-server openssh-clients java-1.8.0-openjdk java-1.8.0-openjdk-devel which mysql mysql-server -y && \
+# rpm -ivh https://repo.mysql.com//mysql57-community-release-el7-11.noarch.rpm && \ mysql mysql-serve
+RUN yum install wget openssh-server openssh-clients java-1.8.0-openjdk java-1.8.0-openjdk-devel which r -y && \
     mkdir /docker-entrypoint-initdb.d && \
 	wget http://archive.apache.org/dist/hadoop/core/hadoop-2.8.1/hadoop-2.8.1.tar.gz && \
 	tar -zxf hadoop-2.8.1.tar.gz && \
